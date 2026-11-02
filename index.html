@@ -6,7 +6,7 @@
 <title>Automation &amp; IT</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#fbfaf7;
@@ -58,7 +58,8 @@ body[data-slide="2"] .b2{left:-10vw;top:46vh}
 body[data-slide="2"] .b3{left:66vw;top:30vh}
 body[data-slide="3"] .b1{left:50vw;top:-20vw}
 body[data-slide="3"] .b2{left:6vw;top:50vh}
-body[data-slide="4"] .blob{opacity:.25}
+body[data-slide="4"] .b1{left:-24vw;top:-10vw}
+body[data-slide="4"] .b2{left:64vw;top:30vh}
 
 /* ---------- stage ---------- */
 .deck{position:fixed;left:50%;top:50%;width:1600px;height:900px;z-index:2;
@@ -70,7 +71,11 @@ body[data-slide="4"] .blob{opacity:.25}
   transition:opacity 1s var(--ease) .15s, transform 1.2s var(--ease) .15s, filter 1s var(--ease) .15s, visibility 0s}
 
 h1,h2,h3{font-weight:300;letter-spacing:-.02em}
-.serif{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400}
+/* soft, edge-less "cloud" behind text: a blurred blob instead of a border */
+.cloud{position:relative;isolation:isolate}
+.cloud::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:999px;
+  background:rgba(255,255,255,.75);filter:blur(14px)}
+
 
 .slide-title{position:absolute;left:120px;top:84px;font-size:54px;font-weight:300;color:var(--ink)}
 .slide-title .serif{color:var(--brown)}
@@ -90,13 +95,12 @@ h1,h2,h3{font-weight:300;letter-spacing:-.02em}
 .s1 .hero{position:absolute;left:150px;top:330px}
 .s1 .hero .eyebrow{margin-bottom:26px}
 .s1 h1{font-size:118px;line-height:1;font-weight:200;letter-spacing:-.035em}
-.s1 h1 .serif{color:var(--brown);font-size:1.08em;padding:0 .04em}
+.s1 h1 .serif{color:var(--brown)}
 .s1 .meta{margin-top:40px;display:flex;align-items:center;gap:18px;font-size:24px;color:var(--ink-soft)}
 .s1 .meta .name{color:var(--ink);font-weight:500}
 .s1 .meta .sep{width:6px;height:6px;border-radius:50%;background:var(--brown-soft)}
-.s1 .tags{display:flex;gap:12px;margin-top:30px}
-.tag{font-size:17px;padding:9px 18px;border-radius:999px;background:var(--card);
-  border:1px solid rgba(61,111,168,.14);color:var(--blue-deep);backdrop-filter:blur(8px)}
+.s1 .tags{display:flex;gap:12px;margin-top:30px;margin-left:-18px}
+.tag{font-size:17px;padding:9px 18px;color:var(--blue-deep)}
 .s1.leaving{transform:scale(1.12);filter:blur(10px)}
 
 /* the flying word (1 -> 2) */
@@ -105,9 +109,8 @@ h1,h2,h3{font-weight:300;letter-spacing:-.02em}
 /* ---------- slide 2 ---------- */
 .s2 .head{position:absolute;left:120px;top:84px;display:flex;align-items:center;gap:28px;z-index:3}
 .s2 .head h2{font-size:54px}
-.tldr{font-size:18px;font-weight:500;padding:10px 20px;border-radius:999px;color:var(--brown);
-  background:linear-gradient(120deg, rgba(234,220,203,.8), rgba(255,255,255,.7));
-  border:1px solid rgba(138,100,71,.18)}
+.tldr{font-size:18px;font-weight:500;padding:12px 26px;color:var(--brown)}
+.tldr::before{background:radial-gradient(closest-side, rgba(234,220,203,.95), rgba(234,220,203,.55) 70%, rgba(234,220,203,0));filter:blur(10px);inset:-6px -10px}
 .tldr b{font-weight:700;letter-spacing:.06em}
 .areas{position:absolute;inset:0;overflow:hidden}
 /* areas sit left / center (.cur) / right; switching = changing classes, CSS does the gliding */
@@ -126,7 +129,6 @@ h1,h2,h3{font-weight:300;letter-spacing:-.02em}
 .area-bg{position:absolute;right:40px;top:120px;width:720px;height:720px}
 .area-bg svg{width:100%;height:100%;overflow:visible}
 .area-content{position:absolute;left:120px;top:236px;width:760px}
-.area-num{font-size:16px;letter-spacing:.24em;color:var(--ink-faint);font-weight:500;margin-bottom:18px}
 .subtitle{font-size:78px;font-weight:600;letter-spacing:-.03em;line-height:1.02;color:var(--blue-deep)}
 .area ul{list-style:none;margin-top:44px;display:flex;flex-direction:column;gap:20px}
 .area li{font-size:32px;font-weight:300;color:var(--ink);display:flex;align-items:center;gap:20px}
@@ -140,18 +142,17 @@ h1,h2,h3{font-weight:300;letter-spacing:-.02em}
 .area.live .strike span::after{transform:scaleX(1)}
 .examples{margin-top:44px}
 .examples .eyebrow{display:block;margin-bottom:16px}
-.chips{display:flex;flex-wrap:wrap;gap:12px;max-width:760px}
-.chips span{font-size:20px;padding:11px 20px;border-radius:16px;background:var(--card);
-  border:1px solid rgba(61,111,168,.13);color:var(--ink-soft);backdrop-filter:blur(10px)}
+.chips{display:flex;flex-wrap:wrap;gap:4px 12px;max-width:800px;margin-left:-20px}
+.chips span{font-size:20px;padding:11px 20px;color:var(--ink-soft)}
+.chips span::before{background:rgba(255,255,255,.7);filter:blur(12px)}
 .area-dots{position:absolute;left:120px;bottom:64px;display:flex;gap:10px;z-index:3}
 .area-dots i{width:8px;height:8px;border-radius:8px;background:var(--line);transition:width .6s var(--ease), background .6s}
 .area-dots i.on{width:34px;background:var(--blue)}
 
-.photo{position:absolute;right:110px;top:240px;width:640px;height:440px;border-radius:30px;overflow:hidden;
-  box-shadow:0 40px 80px -30px rgba(31,42,55,.35), 0 0 0 1px rgba(255,255,255,.6) inset}
+.photo{position:absolute;right:110px;top:240px;width:640px;height:440px}
 .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 60%;display:block}
-.photo .cap{position:absolute;left:22px;bottom:22px;padding:12px 20px;border-radius:14px;
-  background:rgba(255,255,255,.82);backdrop-filter:blur(10px);font-size:21px;font-weight:600;color:var(--ink)}
+.photo .cap{position:absolute;left:-24px;top:100%;margin-top:6px;padding:12px 24px;font-size:21px;font-weight:600;color:var(--ink)}
+.photo .cap::before{background:rgba(251,250,247,.85);filter:blur(14px)}
 .photo .cap small{display:block;font-size:13px;font-weight:500;color:var(--ink-faint);letter-spacing:.14em;text-transform:uppercase;margin-bottom:2px}
 .credit{position:absolute;font-size:12px;color:var(--ink-faint)}
 
@@ -207,11 +208,10 @@ h1,h2,h3{font-weight:300;letter-spacing:-.02em}
 .hs-label.r{right:120px;top:330px;text-align:right}
 .hs-label.r .txt{color:var(--blue-deep)}
 .hs-center{position:absolute;left:800px;top:300px;transform:translate(-50%,10px);opacity:0;
-  padding:18px 38px;border-radius:999px;font-size:44px;font-weight:600;letter-spacing:-.02em;white-space:nowrap;
-  background:rgba(255,255,255,.78);backdrop-filter:blur(12px);
-  border:1px solid rgba(61,111,168,.16);box-shadow:0 24px 60px -24px rgba(43,86,135,.35);
+  padding:22px 46px;font-size:44px;font-weight:600;letter-spacing:-.02em;white-space:nowrap;
   transition:opacity 1.2s var(--ease) 2.1s, transform 1.2s var(--ease) 2.1s}
-.hs-center .serif{color:var(--brown);font-size:1.1em}
+.hs-center::before{background:radial-gradient(closest-side, rgba(255,255,255,.95), rgba(255,255,255,.7) 65%, rgba(255,255,255,0));filter:blur(12px);inset:-14px -24px}
+.hs-center .serif{color:var(--brown)}
 .s3.active .hs-center{opacity:1;transform:translate(-50%,0)}
 
 /* ---------- slide 4 ---------- */
@@ -219,36 +219,26 @@ h1,h2,h3{font-weight:300;letter-spacing:-.02em}
 .s4 .sub .subtitle{font-size:78px}
 .s4 .sub .eyebrow{transform:translateY(-14px)}
 .cards{position:absolute;left:120px;right:120px;top:340px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
-.card{border-radius:28px;overflow:hidden;background:var(--card);backdrop-filter:blur(14px);
-  border:1px solid rgba(255,255,255,.7);box-shadow:0 30px 70px -36px rgba(31,42,55,.35);
-  opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease), transform 1.2s var(--ease)}
+.card{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease), transform 1.2s var(--ease)}
 .s4.active .card{opacity:1;transform:none}
 .s4.active .card:nth-child(1){transition-delay:.5s}
 .s4.active .card:nth-child(2){transition-delay:.7s}
 .s4.active .card:nth-child(3){transition-delay:.9s}
-.card .img{height:270px;overflow:hidden}
+.card .img{height:290px;overflow:hidden}
 .card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 6s ease-out}
 .s4.active .card img{transform:scale(1.05)}
-.card .body{padding:24px 28px 28px}
+.card .body{padding:22px 0 0}
 .card .body b{display:block;font-size:30px;font-weight:600;letter-spacing:-.02em}
 .card .body span{display:block;margin-top:6px;font-size:19px;color:var(--ink-soft)}
 .card .body .city{margin-top:14px;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--brown);font-weight:600}
 
-/* ---------- slide 5 (full bleed) ---------- */
-.finale{position:fixed;inset:0;z-index:1;opacity:0;visibility:hidden;
-  transition:opacity 1.4s var(--ease), visibility 0s linear 1.4s}
-.finale.active{opacity:1;visibility:visible;transition:opacity 1.6s var(--ease) .2s, visibility 0s}
-.finale img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.1);transition:transform 14s ease-out}
-.finale.active img{transform:scale(1)}
-.finale::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg, rgba(251,250,247,0) 30%, rgba(251,250,247,.82) 66%, rgba(251,250,247,.96) 84%, var(--paper) 100%),
-             linear-gradient(90deg, rgba(219,231,244,.35), rgba(234,220,203,.2))}
-.s5 .thanks{position:absolute;left:120px;bottom:90px;opacity:0;transform:translateY(20px);
+/* ---------- slide 5 ---------- */
+.s5 .words{position:absolute;inset:0}
+.s5 .thanks{position:absolute;left:150px;top:360px;opacity:0;transform:translateY(20px);
   transition:opacity 1.2s var(--ease) 1.2s, transform 1.2s var(--ease) 1.2s}
 .s5.active .thanks{opacity:1;transform:none}
 .s5 .thanks h2{font-size:84px;font-weight:200;letter-spacing:-.03em}
 .s5 .thanks h2 .serif{color:var(--brown)}
-.s5 .credit{right:120px;bottom:36px}
 
 /* ---------- chrome ---------- */
 .progress{position:fixed;left:0;bottom:0;height:3px;z-index:10;width:100%;
@@ -260,7 +250,6 @@ h1,h2,h3{font-weight:300;letter-spacing:-.02em}
 <body data-slide="0">
 
 <div class="bg"><div class="blob b1"><i></i></div><div class="blob b2"><i></i></div><div class="blob b3"><i></i></div></div>
-<div class="finale" id="finale"><img src="assets/final.jpg" alt="Roboter im Karosseriebau"></div>
 
 <main class="deck" id="deck">
 
@@ -278,7 +267,7 @@ h1,h2,h3{font-weight:300;letter-spacing:-.02em}
       <div class="eyebrow">Mein Studienfach</div>
       <h1>Automation <span class="serif">&amp;</span> IT</h1>
       <div class="tags">
-        <span class="tag">Master</span><span class="tag">4 Semester</span><span class="tag">Sprache: Englisch</span>
+        <span class="tag cloud">Master</span><span class="tag cloud">4 Semester</span><span class="tag cloud">Sprache: Englisch</span>
       </div>
       <div class="meta"><span class="name">Dima Kochetov</span><span class="sep"></span><span id="date"></span></div>
     </div>
@@ -289,7 +278,7 @@ h1,h2,h3{font-weight:300;letter-spacing:-.02em}
     <div class="areas" id="areas"></div>
     <div class="head">
       <h2>Was wir alles so machen</h2>
-      <span class="tldr"><b>TLDR:</b> Wir automatisieren</span>
+      <span class="tldr cloud"><b>TLDR:</b> Wir bringen Intelligenz und Maschinen zusammen</span>
     </div>
     <div class="area-dots" id="dots"></div>
   </section>
@@ -347,7 +336,7 @@ h1,h2,h3{font-weight:300;letter-spacing:-.02em}
       </g>
     </svg>
 
-    <div class="hs-center">Automation <span class="serif">&amp;</span> IT</div>
+    <div class="hs-center cloud">Automation <span class="serif">&amp;</span> IT</div>
     <div class="hs-label l"><span class="eyebrow">Bachelor</span><div class="txt">Automatisierung und Elektrotechnik</div></div>
     <div class="hs-label r"><span class="eyebrow">Beruf</span><div class="txt">4 Jahre Berufserfahrung als Softwareentwickler</div></div>
   </section>
@@ -367,18 +356,25 @@ h1,h2,h3{font-weight:300;letter-spacing:-.02em}
       </article>
       <article class="card">
         <div class="img"><img src="assets/mybotshop.jpg" alt="MYBOTSHOP Roboter"></div>
-        <div class="body"><b>MYBOTSHOP</b><span>Mobile Roboter &amp; Integration</span><div class="city">Bad Driburg</div></div>
+        <div class="body"><b>MYBOTSHOP</b><span>Mobile Roboter &amp; Integration</span><div class="city">Bergheim</div></div>
       </article>
     </div>
   </section>
 
   <!-- ===== Folie 5 ===== -->
   <section class="slide s5" id="s5">
+    <div class="words">
+      <span class="w" style="left:880px;top:96px;font-size:52px">Robotik</span>
+      <span class="w" style="left:150px;top:150px;font-size:40px">Predictive Maintenance</span>
+      <span class="w" style="left:1080px;top:250px;font-size:30px">vernetzte Systeme</span>
+      <span class="w" style="left:1020px;top:612px;font-size:44px">Industrial IoT</span>
+      <span class="w" style="left:170px;top:740px;font-size:42px">datengetriebene Anwendungen</span>
+      <span class="w" style="left:960px;top:780px;font-size:54px">Software + Hardware</span>
+    </div>
     <div class="thanks">
       <div class="eyebrow" style="margin-bottom:14px">Automation &amp; IT</div>
       <h2>Vielen Dank <span class="serif">für Ihre Aufmerksamkeit</span></h2>
     </div>
-    <div class="credit">Foto: Karosseriebau, BMW Werk Leipzig · Wikimedia Commons</div>
   </section>
 </main>
 
@@ -540,12 +536,11 @@ AREAS.forEach((a,i)=>{
   const el = document.createElement('div');
   el.className = 'area';
   const li = a.items.map(x => typeof x==='string' ? `<li>${x}</li>` : `<li class="strike"><span>${x.strike}</span></li>`).join('');
-  const ex = a.ex ? `<div class="examples"><span class="eyebrow">Beispiele</span><div class="chips">${a.ex.map(e=>`<span>${e}</span>`).join('')}</div></div>` : '';
+  const ex = a.ex ? `<div class="examples"><span class="eyebrow">Beispiele</span><div class="chips">${a.ex.map(e=>`<span class="cloud">${e}</span>`).join('')}</div></div>` : '';
   el.innerHTML = `
     ${a.photo ? '' : `<div class="area-bg"><svg class="ill" viewBox="0 0 600 600">${a.svg()}</svg></div>`}
-    ${a.photo ? `<figure class="photo area-photo"><img src="assets/robocup.jpg" alt="Roboter beim RoboCup"><figcaption class="cap"><small>TH Köln</small>RoboCup German Open '26</figcaption></figure>` : ''}
+    ${a.photo ? `<figure class="photo area-photo"><img src="assets/robocup.jpg" alt="Roboter beim RoboCup"><figcaption class="cap cloud"><small>TH Köln</small>RoboCup German Open '26</figcaption></figure>` : ''}
     <div class="area-content">
-      <div class="area-num">${String(i+1).padStart(2,'0')} / ${String(AREAS.length).padStart(2,'0')}</div>
       <h3 class="subtitle">${a.title}</h3>
       <ul>${li}</ul>${ex}
     </div>`;
@@ -557,7 +552,6 @@ const areaEls = [...areasEl.children];
 /* ================= navigation ================= */
 const STEPS = [{s:0}, ...AREAS.map((_,i)=>({s:1,a:i})), {s:2},{s:3},{s:4}];
 const slides = [...document.querySelectorAll('.slide')];
-const finale = document.getElementById('finale');
 let cur = -1, curArea = -1, busy = false;
 
 document.getElementById('date').textContent =
@@ -572,7 +566,6 @@ addEventListener('resize', fit); fit();
 
 function setSlide(i){
   slides.forEach((el,k)=>el.classList.toggle('active',k===i));
-  finale.classList.toggle('active', i===4);
   document.body.dataset.slide = i;
 }
 
