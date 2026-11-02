@@ -1,0 +1,68 @@
+Präsentation über mein Studienfach (Browser-basiert)
+
+Stil:
+- leicht, sanft, atmend, minimalistisch, Gradient-basiert
+- Farben, grobe Richtung: weiß, blau, braun
+
+Folie 1 - Titelslide:
+- Name: Automation & IT, Master, 4 Semester, Sprache Englisch
+- Mein Name: Dima Kochetov
+- Datum: heute
+
+Im Hintergrund halb transparente Wörter (Ansatzbereiche):
+- Software + Hardware
+- vernetzte Systeme
+- Industrial IoT
+- datengetriebene Anwendungen
+- Predictive Maintainance
+- Robotik
+
+Übergang von Folie 1 zu Folie 2:
+Eins der Hintegrundswörtern (das erste)  wird reingezoomt und wird zum Untertitel
+
+Folie 2 - Was sind die wichtigsten Fachbereiche des Studiums:
+Titel: Was wir alles so machen
+Hinzufügen: "TLDR: Wir automatisieren"
+Untertitel: (Anwendungsbereich aus der Liste oben, Wechsel auf Tastendruck)
+
+[Übergänge zwischen Anwendungbereichen: der Titel bleibt statisch, der Hintergrund und der Inhalt gleiten sanft her und ersetzten den vorigen Bereich]
+
+Anwendungsbereich:
+- Software + Hardware (Hintergrund - Chip mit abstrakten Signalen)
+  - unsere Basis
+  - [durchstrichen] Bausteine selber umsetzen
+  - fertige Softwarekomponenten integrieren
+
+- vernetzte Systeme (Hintergrund - abstrakte Darstellung von einem vernetzten System)
+  - mehrere Rechner
+  - gemeinsame Aufgaben
+  - Beispiele: [liste ein paar anschauliche Beispiele selber auf, die im Kontext Automation & IT relevant sind]
+
+- Industrial IoT (Hintegrund - passend zu Industrial IoT)
+  - was ist das (ähnlich wie oben)
+  - Beispiele: ...
+
+- und so weiter mit den restlichen Bereichen, bei Robotik aber auch das Foto hinzufügen: https://www.th-koeln.de/mam/bilder/hochschule/aktuelles/nachrichten/f10/_thkoeln_mp_dsc7693.jpg und dazu RoboCup German Open '26 schreiben.
+
+
+Folie 3 - Warum haben Sie sich für dieses Studienfach entschieden?
+Titel: Warum ist da was für mich
+
+"Epic Handshake"-Meme: auf der linken Seite mein Bachelorstudium in "Automatisierung und Elektrotechnik"
+auf der rechten Seite "4 Jahre Berufserfahrung als Softwareentwickler"
+in der Mitte "Automation & IT"
+
+Du solltest aber das Meme in unserem Design nachmachen, damit es zum Präsentationsstill passt
+
+Folie 4 - Wie sind die Jobaussichten? In welchen Bereichen möchten Sie arbeiten?
+Titel: Was kommt danach
+
+Robotik
+
+Unternehmen in NRW:
+- igus: https://igus.widen.net/content/hp1clv4olh/webp/IGUS_GEN_homepage_banner_automation_bp1920_DE_1.jpeg&w=1108&h=480
+- Frauenhofer: https://www.iem.fraunhofer.de/de/themen/robotik/jcr:content/contentPar/sectioncomponent_815354787/sectionParsys/wideimage_copy/imageComponent/image.img.4col.png/1786605527213/Robotik-Breitbild.png
+- MYBOTSHOP: https://www.mybotshop.de/bilder/news/93/1_preview.jpg
+
+Folie 5 - die finale Slide
+hier ein Foto, das Industrielle Automatisierung verkörpert
